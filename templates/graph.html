@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Hours Graph</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number of Hours of Sleep for Each Date</h1>
+    <canvas id="sleepChart" width="800" height="400"></canvas>
+    <script>
+        const ctx = document.getElementById('sleepChart').getContext('2d');
+        const sleepChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ dates | safe }},
+        datasets: [{
+            label: 'Hours of Sleep',
+            data: {{ sleep_hours | safe }},
+            borderColor: 'rgba(74, 144, 226, 1)',
+            backgroundColor: 'rgba(74, 144, 226, 0.2)',
+            fill: true,
+            tension: 0.4
+                }]
+            },
+        options: {
+            responsive: true,
+                scales: {
+                x: {
+                    title: {
+                        display: true,
+                            text: 'Date'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                            text: 'Hours of Sleep'
+                    }
+                }
+            }
+        }
+        });
+    </script>
+    <a href="/">Go back</a>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Results</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Submitted Health Data</h1>
+    <div class="result-container">
+        <p><strong>Date:</strong> {{ date }}</p>
+        <p><strong>Sleep Hours:</strong> {{ sleep_hours }}</p>
+        <p><strong>Temperature (°C):</strong> {{ temperature }}</p>
+        <p><strong>Alcohol Consumption:</strong> {{ alcohol }}</p>
+        <p><strong>Food Consumed:</strong> {{ food }}</p>
+        <p><strong>Activity Before Bed:</strong> {{ activity }}</p>
+        <p><strong>Stretching:</strong> {{ stretching }}</p>
+        <p><strong>Caffeine After 12pm:</strong> {{ caffeine }}</p>
+        <p><strong>Sleep Quality:</strong> {{ sleep_quality }}</p>
+        <p><strong>Bed time:</strong> {{ bedtime }}</p>
+        <p><strong>Awake time:</strong> {{ awaketime }}</p>
+    </div>
+    <a href="/">Go back</a>
+</body>
+
+</html>

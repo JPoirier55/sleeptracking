@@ -140,6 +140,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
+test_fitbit/
+
 # mypy
 .mypy_cache/
 .dmypy.json

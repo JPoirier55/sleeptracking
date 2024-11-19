@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: fitbit
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fitbit
+    volumes:
+      - postgres-fitbitdb-volume:/var/lib/postgresql/data
+    ports: 
+      - "5435:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "fitbit" ]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+
+volumes:
+  postgres-fitbitdb-volume:
