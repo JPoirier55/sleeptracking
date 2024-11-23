@@ -12,9 +12,11 @@ services:
       POSTGRES_USER: fitbit
       POSTGRES_PASSWORD: password
       POSTGRES_DB: fitbit
+    networks:
+      - shared_network
     volumes:
       - postgres-fitbitdb-volume:/var/lib/postgresql/data
-    ports: 
+    ports:
       - "5435:5432"
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "fitbit" ]
@@ -25,3 +27,10 @@ services:
 
 volumes:
   postgres-fitbitdb-volume:
+
+
+networks:
+  shared_network:
+    name: shared_network
+    external: true
+    driver: bridge
