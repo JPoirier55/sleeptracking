@@ -32,4 +32,4 @@ def upgrade() -> None:
     )
 
 def downgrade() -> None:
-    op.drop_table('activity_raw')
+    op.drop_table('manual_sleep_data')
