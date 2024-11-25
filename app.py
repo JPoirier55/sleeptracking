@@ -1,8 +1,5 @@
-import csv
 from flask import Flask, render_template, request, redirect, url_for, send_file
-import sqlite3
 import psycopg2
-import json
 from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
